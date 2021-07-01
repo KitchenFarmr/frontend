@@ -87,7 +87,7 @@ git clone git@github.com:KitchenFarmr/frontend.git
 
 cd into the directory
 ```zsh
-cd KitchenFarmr
+cd frontend
 ```
 
 Rename `.env.sample` to `.env`
