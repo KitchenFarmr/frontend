@@ -1,6 +1,6 @@
 {
   "name": "KitchenFarmr",
-  "description": "The default Marko starter app",
+  "description": "The Front End for KitchenFarmr built on React",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
