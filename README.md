@@ -34,13 +34,11 @@
 - [Required Software](#required-software)
 - [How to Run](#how-to-run)
 - [How to Contribute](#how-to-contribute)
-- [API Documentation](#api-documentation)
-- [Running Tests](#running-tests)
 
 
 ## Makefile Commands
 
-<!-- `stop`: Stop the running server
+`stop`: Stop the running server
 
 `rm`: Remove all unused containers
 
@@ -63,12 +61,6 @@
 `hard-reload`: Stop container, remove container, rebuild container, and start development server
 
 `debug`: Start development server in debug mode
-
-`test`: Start test server
-
-`reload-test`: Reload test server
-
-`hard-reload-test`: Stop container, remove container, rebuild container, and start test server -->
 
 
 ## Required Software
@@ -171,15 +163,3 @@ git commit -m "[delete] test.js" -m "Broke up test.js into testAuth.js and testC
 ### Pull Requests
 
 Upon completing the feature/bugfix of the corresponding branch create a pull request with a title and description. Add at least one code reviewer to the pull request to ensure good code quality and practice. Once the code has been approved by both the reviewer and the test pipeline. The code will be merged into production.
-
-## API Documentation
-
-
-## Running Tests
-
-To run tests simple run:
-```zsh
-make test
-```
-
-If any of the tests fail or if the tests do not have at least 90% coverage the command will exit with a status code of `1`.
