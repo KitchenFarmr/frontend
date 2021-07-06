@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  frontend:
+    image: kitchenfarmr-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: frontend
+    volumes:
+      - ./public:/usr/src/app/public
+      - ./src:/usr/src/app/src
+      - ./package.json:/usr/src/app/package.json
+      - ./package-lock.json:/usr/src/app/package-lock.json
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    networks:
+      - kitchenfarmr-network
+
+networks:
+  kitchenfarmr-network:
+    driver: bridge
