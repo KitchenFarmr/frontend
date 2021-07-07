@@ -1,10 +1,12 @@
 .git*
 .vscode
+build
 node_modules
 .*ignore
 .env*
 .eslint*
 .gitignore
+*.log
 *.md
 docker-compose*
 Dockerfile*
