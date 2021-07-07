@@ -22,4 +22,4 @@ COPY --from=build /usr/src/app/node_modules ./node_modules
 HEALTHCHECK --interval=1m --timeout=5s --retries=2 \
     CMD curl -f http://localhost || exit 1
 
-CMD ["node_modules/.bin/serve", "-s", "build", "-l", "3000"]
+CMD [ "node_modules/.bin/serve", "-s", "build", "-l", "3000" ]
