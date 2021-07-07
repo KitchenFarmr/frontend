@@ -10,7 +10,7 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run lint && npm run build-prod && npm prune --production && npm i serve
+RUN npm run lint && npm run build && npm prune --production && npm i serve
 
 FROM gcr.io/distroless/nodejs:14
 
