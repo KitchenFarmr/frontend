@@ -5,7 +5,7 @@ function App() {
   const [apiResult, setResults] = useState(null);
   useEffect(() => {
     const getResults = async () => {
-      const res = await fetch(process.env.API_URI);
+      const res = await fetch(`${process.env.API_URI}/30330`);
       const json = await res.json();
       setResults(json.results);
     };
