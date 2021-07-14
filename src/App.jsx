@@ -8,7 +8,12 @@ function App() {
 
   const getResults = async () => {
     setLoading(true);
-    const url = `${process.env.API_URI}/results/${inputValue}` || `/results/${inputValue}`;
+    let url;
+    if (process.env.API_URI) {
+      url = `${process.env.API_URI}/results/${inputValue}`;
+    } else {
+      url = `/results/${inputValue}`;
+    }
     const res = await fetch(url);
     const json = await res.json();
     setResults(json);
