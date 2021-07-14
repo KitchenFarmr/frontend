@@ -1,32 +1,47 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function App() {
   const [apiResult, setResults] = useState(null);
-  useEffect(() => {
-    const getResults = async () => {
-      const res = await fetch(`${process.env.API_URI}/results/30330`);
-      const json = await res.json();
-      setResults(json.results);
-    };
-    getResults();
-  }, []);
+  const [inputValue, setInputValue] = useState('');
+  const [isLoading, setLoading] = useState(false);
+
+  const getResults = async () => {
+    setLoading(true);
+    const res = await fetch(`${process.env.API_URI}/results/${inputValue}`);
+    const json = await res.json();
+    setResults(json);
+    setLoading(false);
+  };
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Results:
-        </p>
-        {apiResult
-          ? (
-            <ul>
-              {apiResult.map((document) => <li key={document.id}>{document.marketname}</li>)}
-            </ul>
-          )
-          : <p>Loading...</p>}
-
+      <header className="input-fields">
+        <input type="text" value={inputValue} onChange={handleInputChange} pattern="[0-9]{5}" placeholder="Enter your zip code" title="Five digit zip code" />
+        <button type="button" onClick={getResults}>Search</button>
       </header>
+
+      <section>
+        {isLoading
+          && <p className="loader">Loading...</p>}
+
+        {apiResult
+          && (
+            <main className="grid">
+              {apiResult.map((document) => (
+                <div className="card" key={document.id}>
+                  <p>{document.marketname}</p>
+                  <p>{document.yearly_schedule}</p>
+                  <p>{document.weekly_schedule}</p>
+                </div>
+              ))}
+            </main>
+          )}
+      </section>
     </div>
   );
 }
